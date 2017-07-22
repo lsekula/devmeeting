@@ -8,15 +8,15 @@ export interface Item {
     tags:string[];
 }
 
-export const ItemsList: Item[]=[
+export const ItemsList: Item[] = [
     {
         id: 1,
-        name: "Okno",
+        name: 'Okno',
         description: "Opis 1",
         img: "http://lorempixel.com/200/199/",
         promo: false,
         price: 23.2,
-        tags:['białe', 'pcv', 'czerwone']
+        tags: ['białe', 'pcv', 'czerwone']
     },
         {
         id: 2,

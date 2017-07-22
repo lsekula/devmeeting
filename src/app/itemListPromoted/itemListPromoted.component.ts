@@ -7,7 +7,8 @@ import { mainStyle } from './../../style/main';
   templateUrl: './itemListPromoted.component.html',
   styles: [...mainStyle , `
       :host{
-
+          height:100px;
+          
       }
   `]
 })
