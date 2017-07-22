@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { Product } from './app.product.component';
 import { Tags } from './app.tags.component';
+import { ProductService } from './app.product.service';
 
 @Component({
     selector: 'app-root',
+    providers: [ ProductService ],
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 })
@@ -11,27 +13,12 @@ import { Tags } from './app.tags.component';
 export class AppComponent {
     title = 'app';
 
-
-    public tags:Array<Tags> = [
-        new Tags('black'),
-        new Tags('red'),
-        new Tags('white')
-    ];
-
-    public list:Array<Product> = [
-        new Product('ferst', 1),
-        new Product('second', 2),
-        new Product('third', 3),
-        new Product('colorado', 3),
-        new Product('inna', 3)
-    ];
-
     public filtered_list:Array<Product>;
 
-    constructor() {
-        this.list[0].setPromoted();
+    constructor(private products: ProductService) {
+        //this.list[0].setPromoted();
         // this.filtered_list = this.list;
-        this.filtered_list = this.list;
+        this.filtered_list = this.products.getProductList();
     }
 
     filterIt() {
@@ -48,6 +35,6 @@ export class AppComponent {
     onKey(filtr) {
         let search = filtr.target.value;
 
-        this.filtered_list = this.list.filter(elem => elem.name.includes(search))
+        this.filtered_list = this.products.getProductList().filter(elem => elem.name.includes(search))
     }
 }
