@@ -6,7 +6,7 @@ import { Product, ProductsService } from './products.service';
   selector: 'products-list',
   providers: [ ProductsService ],
   template: `<div class="other-items">
-    <input type="text" placeholder="Szukaj...">
+    <input type="text" #searchQuery placeholder="Szukaj..." (keyup)="searchProducts(searchQuery.value)">
     <ul>
       <li *ngFor="let product of products | async" [ngClass]="{'promoted': product.promoted }">{{ product.name }} Cena: {{ product.price }}zł</li>
     </ul>
@@ -23,8 +23,12 @@ export class ListOfProducts implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.products = this.service.getProductsByID(2);
+    this.products = this.service.getProducts();
     console.log(this.products);
+  }
+
+  searchProducts(query) {
+    this.products = this.service.getProductsByName(query);
   }
 
   // getCurrentTags(id) {
