@@ -19,13 +19,14 @@ export class Product {
 @Component({
     selector: 'product',
     template: `
-        <p>name: {{ item.name }}, price: {{ item.price }}
+        <p>Product name: {{ item.name }}, price: {{ item.price }}
             <span *ngIf="item.promoted">, product is promoted</span>
         </p>
+        
     `
 })
+
 export class ProductComponent {
     // To receive data we use Input annotation
-    public item;
+    @Input() public item;
 }
-
