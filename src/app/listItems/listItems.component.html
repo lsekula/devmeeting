@@ -1,11 +1,15 @@
 
-<div class="row filter">
-    <div class="col-3">Wyszukaj</div>
-    <div class="col-7">
+<div class="row filter" *ngIf="!sorted">
+    <div class="col-2">Wyszukaj</div>
+    <div class="col-5">
         <input type="text" class="form-control" [formControl]="myInput">
     </div>
     <div class="col-2">
-        <button (click)="sortPrice()" class="btn btn-success">Sortuj</button>
+    Sortuj po 
+    </div>
+    <div class="col-3">
+        <button (click)="sortPrice()" class="btn btn-success"> cenie <i class="fa {{classSort}}" aria-hidden="true"></i></button>
+        <button (click)="sortName()" class="btn btn-success"> nazwie <i class="fa {{classSortName}}" aria-hidden="true"></i></button>
     </div>
 </div>
 

@@ -12,6 +12,9 @@ import { mainStyle } from './../../style/main';
         display:block;
         margin:5px
       }
+      .tag {
+        margin:5px
+      }
   `]
 })
 export class ItemComponent implements OnInit {
