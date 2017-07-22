@@ -1,14 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ItemComponent } from './item/item.component';
+import { ListItemsComponent } from './listItems/lisItems.component';
+import { ListItemsPromotedComponent } from './itemListPromoted/itemListPromoted.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ItemComponent,
+    ListItemsComponent,
+    ListItemsPromotedComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

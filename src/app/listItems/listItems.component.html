@@ -1,0 +1,12 @@
+
+<div class="row filter">
+    <div class="col-3">Wyszukaj</div>
+    <div class="col-7">
+        <input type="text" class="form-control" [formControl]="myInput">
+    </div>
+    <div class="col-2">
+        <button (click)="sortPrice()" class="btn btn-success">Sortuj</button>
+    </div>
+</div>
+
+<w-item *ngFor="let item of _items" class="col-3" [item]="item"></w-item>

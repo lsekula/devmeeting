@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Item, ItemsList } from './../mock/productList';
 
 
@@ -7,20 +7,19 @@ import { Item, ItemsList } from './../mock/productList';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app';
-  itemsList = ItemsList;
+  public itemsPromise: Promise<Item[]>;
   constructor () {
-      console.log("AppComponent", this.itemsList);
+      console.log('AppComponent');
   }
 
-  getPromoItems() {
-      let promoItems: Item[] = [];
-      this.itemsList.forEach((value) => {
-            if (value.promo) {
-                promoItems.push(value);
-            }
-      })
-      return promoItems;
+  ngOnInit() {
+    this.itemsPromise = new Promise((resolve) => {
+        setTimeout(
+            () => resolve(ItemsList),
+            5000,
+        );
+    });
   }
 }

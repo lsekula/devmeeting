@@ -1,0 +1,14 @@
+  <div class="card">
+      <div class="card-img-top">
+        <img src="{{item.img}}" alt="" class="img-thumbnail">
+      </div>
+      <div class="card-block">
+        <h2 class="card-title">{{item.name}}</h2>
+        <span class="card-text">{{item.description}}</span>
+        <div class="price"><b>{{item.price}}</b> zł</div>
+        <div class="tags">
+          <span *ngFor="let tag of item.tags">{{tag}}</span>
+        </div>
+        <button class="btn btn-primary">Dodaj do koszyka</button>
+      </div>
+  </div>

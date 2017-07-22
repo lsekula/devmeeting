@@ -1,29 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
 
-<h1>Promocyjne towary</h1>
-
-<div class="row promoItems">
-  <div *ngFor="let item of getPromoItems()" class="col-6">
-    <div class="">
-      <h2>{{item.name}}</h2>
-      <span>{{item.description}}</span>
-      <img src="{{item.img}}" alt="">
-      <button>Dodaj do koszyka</button>
-    </div>
-  </div>
+<div class="container">
+  <h1>Promocyjne towary</h1>
+  <w-list-item-promoted class="row" *ngIf="itemsPromise | async as itemsList; else loading" [items]="itemsList"></w-list-item-promoted>
+  <hr>
+  <w-list-item class="row" *ngIf="itemsPromise | async as itemsList; else loading" [items]="itemsList"></w-list-item>
+  <ng-template #loading>
+      Loading data
+  </ng-template>
 </div>
-
-<hr>
-
-<div class="row">
-  <div *ngFor="let item of itemsList" class="col-6">
-    <div class="">
-      <h2>{{item.name}}</h2>
-      <span>{{item.description}}</span>
-      <img src="{{item.img}}" alt="">
-      <button>Dodaj do koszyka</button>
-    </div>
-  </div>
-</div>
-
