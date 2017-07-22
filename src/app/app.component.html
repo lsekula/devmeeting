@@ -1,10 +1,4 @@
 <div style="text-align:center">
-  <div class="item">
-    <h2>{{ productTitle }}</h2>
-  </div>
-  <div class="other-items">
-    <ul>
-      <li *ngFor="let product of products " [ngClass]="{'promoted': product.promoted }">{{ product.name }}</li>
-    </ul>
-  </div>
+  <single-product></single-product>
+  <products-list></products-list>
 </div>
